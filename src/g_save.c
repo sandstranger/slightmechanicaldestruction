@@ -9,12 +9,13 @@
 #endif
 
 #define SAVEGAME_DLLNAME "Lazarus Quake II mod for SMD"
-#define SAVEGAME_VERSION 1
+#define SAVEGAME_VERSION 2
 
 mmove_t mmove_reloc;
 
 field_t fields[] = {
 	{"classname", FOFS(classname), F_LSTRING},
+	{"common_name", FOFS(common_name), F_LSTRING},
 	{"model", FOFS(model), F_LSTRING},
 	{"spawnflags", FOFS(spawnflags), F_INT},
 	{"speed", FOFS(speed), F_FLOAT},

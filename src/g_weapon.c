@@ -66,7 +66,7 @@ monster's dodge function should be called.
 	tr = gi.trace(start, NULL, NULL, end, self, MASK_SHOT);
 	if ((tr.ent) && (tr.ent->svflags & SVF_MONSTER) && (tr.ent->health > 0) && (tr.ent->monsterinfo.dodge) && infront(tr.ent, self))
 	{
-		if (!Q_stricmp(tr.ent->common_name, "Enforcer"))
+		if (tr.ent->common_name && !Q_stricmp(tr.ent->common_name, "Enforcer"))
 			infantry_dodge(tr.ent, self, 1.1);	//don't duck if can't roll
 	}
 }
@@ -1081,7 +1081,7 @@ void Rocket_Evade (edict_t *rocket, vec3_t	dir, float speed)
 		// Not much hope in evading if distance is < 1K or so (//CW: unless Chick or Infantry)}
 
 //CW++
-		if (!Q_stricmp(ent->common_name, "Iron Maiden"))
+		if (ent->common_name && !Q_stricmp(ent->common_name, "Iron Maiden"))
 		{
 			if ((time > 0.2) && (time < 0.8))
 			{
@@ -1089,7 +1089,7 @@ void Rocket_Evade (edict_t *rocket, vec3_t	dir, float speed)
 				continue;
 			}
 		}
-		else if (!Q_stricmp(ent->common_name, "Enforcer"))
+		else if (ent->common_name && !Q_stricmp(ent->common_name, "Enforcer"))
 		{
 			if (time > 0.2)
 			{
